@@ -4,13 +4,3 @@
     {{ form }}
     <input type="submit" value="Submit" />
 </form>
-
-{% for vid in videos %}
-    <div>
-        <img src="{{ vid.video_thumbnail }}">
-        <p>Title: {{vid.video_title}}</p>
-        <p>Channel: {{vid.video_channel}}</p>
-        <p>Length: {{vid.video_duration}}</p>
-        <p>Upload Date: {{vid.video_upload_date}}</p>
-    </div>
-{% endfor %}

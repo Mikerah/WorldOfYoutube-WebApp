@@ -1,5 +1,5 @@
-from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 
 from .forms import QueryForm
 from .models import Video
@@ -66,13 +66,25 @@ def index(request):
             country = form.cleaned_data['country']
             category = form.cleaned_data['category']
             n = int(form.cleaned_data['number_of_videos_to_return'])
-            videos = get_popular_videos_list(country, category, n)
-            return render_to_response('youtube_videos/index.html', {'videos': videos})
+            # videos = get_popular_videos_list(country, category, n)
+            # return render(request, 'youtube_videos/index.html', {'videos': videos})
+            request.session['country'] = country
+            request.session['category'] = category
+            request.session['number_of_videos'] = n
+            # return render(request, 'youtube_videos/results.html')
+            return HttpResponseRedirect('/results.html')
+            
             
     else:
         form = QueryForm()
     
     return render(request, 'youtube_videos/index.html', {'form': form})
     
-            
+def results(request):
+    country = request.session['country']
+    category = request.session['category']
+    number_of_videos = request.session['number_of_videos']
     
+    videos = get_popular_videos_list(country, category, number_of_videos)
+    
+    return render(request, 'youtube_videos/results.html', {'videos': videos})
