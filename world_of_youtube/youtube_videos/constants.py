@@ -61,5 +61,6 @@ CATEGORIES = (
     (15, "Pets & Animals"),
     (28, "Science & Technology"),
     (17, "Sports"),
-    (19, "Travel & Events")
+    (19, "Travel & Events"),
+    (0, "All")
 )
