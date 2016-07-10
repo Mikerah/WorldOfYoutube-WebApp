@@ -10,7 +10,6 @@ from oauth2client.tools import argparser
 
 from .constants import DEVELOPER_KEY, YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION
 
-# from iso8601 import parse_date
 from isodate import parse_date, parse_duration
 
 def parse_upload_date(upload_date):
