@@ -10,6 +10,23 @@ from oauth2client.tools import argparser
 
 from .constants import DEVELOPER_KEY, YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION
 
+# from iso8601 import parse_date
+from isodate import parse_date, parse_duration
+
+def parse_upload_date(upload_date):
+    """ Returns a datetime object for an upload date in ISO8601 format
+   
+        upload_date: upload_date of a youtube video
+    """
+    return parse_date(upload_date)
+    
+def parse_video_duration(duration):
+    """ Returns a datetime object for a video duration in ISO8601 format
+    
+        duration: the length of the video
+    """
+    return parse_duration(duration)
+
 def get_popular_videos_list(region_code, video_category, number_of_videos_wanted):
     """
     Retrieves a list of popular videos given a region, category
@@ -35,8 +52,8 @@ def get_popular_videos_list(region_code, video_category, number_of_videos_wanted
         video = Video(
             video_title = video_item['snippet']['title'],
             video_channel = video_item['snippet']['channelTitle'],
-            video_duration = video_item['contentDetails']['duration'],
-            video_upload_date = video_item['snippet']['publishedAt'],
+            video_duration = parse_video_duration(video_item['contentDetails']['duration']),
+            video_upload_date = parse_upload_date(video_item['snippet']['publishedAt']),
             video_thumbnail = video_item['snippet']['thumbnails']['default']['url']
         )
         list_of_videos.append(video)
