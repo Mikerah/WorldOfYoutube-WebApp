@@ -8,7 +8,7 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
 
-from .constants import DEVELOPER_KEY, YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION
+from .constants import DEVELOPER_KEY, YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, COUNTRIES_DICT, CATEGORIES_DICT
 
 from isodate import parse_date, parse_duration
 
@@ -66,15 +66,11 @@ def index(request):
             country = form.cleaned_data['country']
             category = form.cleaned_data['category']
             n = int(form.cleaned_data['number_of_videos_to_return'])
-            # videos = get_popular_videos_list(country, category, n)
-            # return render(request, 'youtube_videos/index.html', {'videos': videos})
             request.session['country'] = country
             request.session['category'] = category
             request.session['number_of_videos'] = n
-            # return render(request, 'youtube_videos/results.html')
             return HttpResponseRedirect('/results.html')
-            
-            
+        
     else:
         form = QueryForm()
     
@@ -87,4 +83,7 @@ def results(request):
     
     videos = get_popular_videos_list(country, category, number_of_videos)
     
-    return render(request, 'youtube_videos/results.html', {'videos': videos})
+    region = COUNTRIES_DICT[country]
+    cat = CATEGORIES_DICT[int(category)]
+    
+    return render(request, 'youtube_videos/results.html', {'videos': videos, 'country': region, 'category': cat})
