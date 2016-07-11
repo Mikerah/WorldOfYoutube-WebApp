@@ -1,6 +1,25 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
 
-<form action="." method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>World Of Youtube</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Find the World's Most Popular Youtube Videos">
+    </head>
+    <body class="text-center">
+        <h1>Welcome to the World Of Youtube</h1>
+        <p>Find the World's Most Popular Youtube videos by country and category.</p>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+        
+        <footer>
+            <a href="https://github.com/Mikerah/WorldOfYoutube-WebApp">View Source Code on Github</a>
+        </footer>
+    </body>
+</html>
