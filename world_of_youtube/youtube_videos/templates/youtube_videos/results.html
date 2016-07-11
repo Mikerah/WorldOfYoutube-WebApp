@@ -1,9 +1,5 @@
 
-<form action="." method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+<h1>The Top {{ request.session.number_of_videos }} Videos {{ category }} Category In {{ country }}</h1>
 
 {% for vid in videos %}
     <div>
@@ -14,3 +10,7 @@
         <p>Upload Date: {{vid.video_upload_date}}</p>
     </div>
 {% endfor %}
+
+<form action="{%url 'index' %}">
+    <input type="submit" value="Search Again"/>
+</form>
