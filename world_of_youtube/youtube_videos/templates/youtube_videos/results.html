@@ -1,16 +1,40 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
 
-<h1>The Top {{ request.session.number_of_videos }} Videos {{ category }} Category In {{ country }}</h1>
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>World Of Youtube</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Find the World's Most Popular Youtube Videos">
+    </head>
 
-{% for vid in videos %}
-    <div>
-        <img src="{{ vid.video_thumbnail }}">
-        <p>Title: {{vid.video_title}}</p>
-        <p>Channel: {{vid.video_channel}}</p>
-        <p>Length: {{vid.video_duration}}</p>
-        <p>Upload Date: {{vid.video_upload_date}}</p>
-    </div>
-{% endfor %}
+    <body>
+        <h1 class="text-center">The Top {{ request.session.number_of_videos }} Videos In The {{ category }} Category In {{ country }}</h1>
 
-<form action="{%url 'index' %}">
-    <input type="submit" value="Search Again"/>
-</form>
+        {% for vid in videos %}
+            <a href="{{vid.video_url}}" target="_blank">
+                <div class="row m-a-10">
+                    <div class="col-md-5">
+                        <img class="center-block" src="{{ vid.video_thumbnail }}">
+                    </div>
+                    <div class="col-md-7 text-center">
+                        <p>Title: {{vid.video_title}}</p>
+                        <p>Channel: {{vid.video_channel}}</p>
+                        <p>Length: {{vid.video_duration}}</p>
+                        <p>Upload Date: {{vid.video_upload_date}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+        <form action="{%url 'index' %}">
+            <input class="center-block btn" type="submit" value="Search Again"/>
+        </form>
+        <footer id="footer" class="pull-right">
+            <a href="https://github.com/Mikerah/WorldOfYoutube-WebApp" target="_blank">View Source Code on Github</a>
+        </footer>
+    </body>
+
+</html>
