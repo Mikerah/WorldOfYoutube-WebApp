@@ -53,7 +53,8 @@ def get_popular_videos_list(region_code, video_category, number_of_videos_wanted
             video_channel = video_item['snippet']['channelTitle'],
             video_duration = parse_video_duration(video_item['contentDetails']['duration']),
             video_upload_date = parse_upload_date(video_item['snippet']['publishedAt']),
-            video_thumbnail = video_item['snippet']['thumbnails']['default']['url']
+            video_thumbnail = video_item['snippet']['thumbnails']['default']['url'],
+            video_url = "http://www.youtube.com/watch?v=" + video_item['id']
         )
         list_of_videos.append(video)
     return list_of_videos
