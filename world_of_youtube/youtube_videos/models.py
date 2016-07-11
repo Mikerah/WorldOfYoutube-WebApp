@@ -6,6 +6,7 @@ class Video(models.Model):
     video_duration = models.DurationField()
     video_upload_date = models.DateField()
     video_thumbnail = models.ImageField()
+    video_url = models.CharField(max_length=250)
     
     def __str__(self):
         return self.video_title
