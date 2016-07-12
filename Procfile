@@ -1,1 +1,1 @@
-web: python world_of_youtube/manage.py runserver
+web: python manage.py runserver 0.0.0.0:$PORT
