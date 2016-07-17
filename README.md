@@ -8,3 +8,6 @@ For this project, I learned the Django web project and learned more about Bootst
 
 ## Improvements
 As always, there are a lot of improvements to be made in every single one of my projects. The main area where this project needs improvements is in the web design department. This site looks like it came out of the 90s. As opposed to having 2 html files, this web app could be a single page application. The design of the code could be improved upon as well. I left certain functions in the views.py file even though they weren't views, simply for easier access. And then there are the typical things that I mention in every learning project like exception handling and documentation.
+
+###### API KEY
+Since I have been having difficulty removing my API KEY from this repository's commit history, I have revoked the API KEY and left them in this code. Thus, if you fork this repo, you'll have to create your own Youtube Data v3 API KEY.
