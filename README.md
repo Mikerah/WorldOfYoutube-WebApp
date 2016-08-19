@@ -1,7 +1,7 @@
 # WorldOfYoutube-WebApp
 
 ## Overview
-The World Of Youtube WebApp is the same as the [Android app ](https://github.com/Mikerah/WorldOfYoutube) I built a few months ago. This version of the app was built using the Django Web Framework for Python, Bootstrap 3 and the Youtube Data API. This project was for me to learn more about the Django framework and to decide whether to puruse web development more seriously. Overall, this project was fun to pursue and has made me want to pursue web development work more seriously.
+The World Of Youtube WebApp is the same as the [Android app ](https://github.com/Mikerah/WorldOfYoutube) I built a few months ago. This version of the app was built using the Django Web Framework for Python, Bootstrap 3 and the Youtube Data API. This project was for me to learn more about the Django framework and to decide whether to pursue web development more seriously. Overall, this project was fun to pursue and has made me want to pursue web development work more seriously.
 
 ## What I've learned
 For this project, I learned the Django web project and learned more about Bootstrap3. I've learned more about the web development process and gained a better understanding of how my favorite web apps work. I've also learned how to incorporate an API in a web application. I can now incorporate the Youtube Data API in both Python and Java projects. I've also solidified my understanding of the web and how the internet works in general. This knowledge includes the difference between GET and POST request and how Django renders urls.
