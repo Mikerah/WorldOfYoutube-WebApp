@@ -11,7 +11,7 @@
     </head>
 
     <body>
-        <h1 class="text-center">The Top {{ request.session.number_of_videos }} Videos In The {{ request.session.category }} Category In {{ request.session.country }}</h1>
+        <h1 class="text-center">The Top {{ request.session.number_of_videos }} Videos In The {{ category }} Category In {{ country }}</h1>
 
         {% for vid in videos %}
             <a href="{{vid.video_url}}" target="_blank">
